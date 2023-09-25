@@ -3,23 +3,23 @@ var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 //saveBtn click listener and nearby values in JQuery
-$(document).ready(function(){
-  $(".saveBtn").on("click", function() {
-    var text = $(this).siblings(".description").val();
-    var time = $(this).parent().attr("id");
-    //saving text in local storage using above variables
-    localStorage.setItem(time, text);
-})
+$(document).ready(function () {
+  $(".saveBtn").on("click", function () {
+      var text = $(this).siblings(".description").val();
+      var time = $(this).parent().attr("id");
+      //saving text in local storage using above variables
+      localStorage.setItem(time, text);
+  })
  
   function timeTracker() {
   //variable for current time
     var timeNow = moment().hour();
 
-  //function to loop and distinguish current time
+  //loop over blocks and distinguish current time
     $(".time-block").each(function () {
         var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-      // To check the time and add the classes for background indicators
+      //check the time and add the classes for background indicators
         if (blockTime < timeNow) { //if time is in the past
             $(this).removeClass("future");
             $(this).removeClass("present");
