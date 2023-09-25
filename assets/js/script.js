@@ -8,8 +8,9 @@ $(document).ready(function(){
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
     //saving text in local storage using above variables
-    localStorage.setItem(time,text);
+    localStorage.setItem(time, text);
 })
+ 
   function timeTracker() {
   //variable for current time
     var timeNow = moment().hour();
