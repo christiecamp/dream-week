@@ -13,14 +13,14 @@ body {
     padding: 10px;
   }
 
-  .calendar {
+  .jumbotron {
     text-align: center;
     background-color: transparent;
     color: black;
     border-radius: 0;
     border-bottom: 10px solid black;
   }
-  
+
   .description {
     white-space: pre-wrap;
   }
@@ -69,8 +69,7 @@ body {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
-  
-/* media query for phones & tablets */
+
   @media screen and (max-width: 768px), screen and (max-width: 575px) {
     .row {
       height: auto;
@@ -88,7 +87,7 @@ body {
     }
   
     textarea {
-      min-height: 80px;
+      min-height: 85px;
       border: 0;
     }
   }
