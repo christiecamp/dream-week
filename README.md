@@ -51,11 +51,11 @@ The following animation demonstrates the application functionality:
 ![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/thirdpartyaip-demo.gif)
 
 
-## Project Screen Grab w/ Console
+## Project Screen Grab
 
-The following image shows my finished project, with console opened:
+The following image shows my finished project:
 
-
+![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/day-dreamer-ss.png)
 
 ## Changes Made to Code
 
