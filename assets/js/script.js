@@ -1,71 +1,53 @@
 //current date
-var todayDate = moment().format('dddd, MMM Do YYYY');
-$("#currentDay").html(todayDate);
+$(document).ready(function() {
+    timeBlocks ();
+    renderDream ();
+
+
+  var currentDate = day.js().format('dddd, MMM Do YYYY');
+  $("#currentDay").text(currentDate);
 
 //saveBtn click listener and nearby values in JQuery
-$(document).ready(function () {
-  $(".saveBtn").on("click", function () {
+  $(".saveBtn").click(function() {
       var text = $(this).siblings(".description").val();
+      console.log(text);
       var time = $(this).parent().attr("id");
+      console.log(time);
       //saving text in local storage using above variables
       localStorage.setItem(time, text);
-  })
+
+  });
  
-  function timeTracker() {
+  function timeBlocks() {
   //variable for current time
-    var timeNow = moment().hour();
+    var currentHour = day.js().hour();
 
   //loop over blocks and distinguish current time
     $(".time-block").each(function () {
-        var blockTime = parseInt($(this).attr("id").split("hour")[1]);
-
+        var blockTime = parseInt($(this).attr("id").split("-")[1]);
       //check the time and add the classes for background indicators
-        if (blockTime < timeNow) { //if time is in the past
-            $(this).removeClass("future");
-            $(this).removeClass("present");
+        if (blockTime < currentHour) { //if time is in the past
             $(this).addClass("past");
-        }
-        else if (blockTime === timeNow) {//if time is in the present
+        } else if (blockTime === currentHour) { //if time is in the present
             $(this).removeClass("past");
-            $(this).removeClass("future");
             $(this).addClass("present");
-        }
-        else {
-            $(this).removeClass("present");//if time is in the future
-            $(this).removeClass("past");
+        } else {
+            $(this).removeClass("past"); //if time is in the future
+            $(this).removeClass("present");
             $(this).addClass("future");
-
         }
     })
+  };
+  timeBlocks();
+
+  //function to loop over time blocks
+  function renderDream () {
+    $(".time-block").each(function () {
+      var blockTime = $(this).attr("id");
+      $(this).children(".description").val(localStorage.getItem(blockTime));
+    });
   }
 
-  //items in local storage
-  $("#hour00.description").val(localStorage.getItem("hour00"));
-  $("#hour01.description").val(localStorage.getItem("hour01"));
-  $("#hour02.description").val(localStorage.getItem("hour02"));
-  $("#hour03.description").val(localStorage.getItem("hour03"));
-  $("#hour04.description").val(localStorage.getItem("hour04"));
-  $("#hour05.description").val(localStorage.getItem("hour05"));
-  $("#hour06.description").val(localStorage.getItem("hour06"));
-  $("#hour07.description").val(localStorage.getItem("hour07"));
-  $("#hour08.description").val(localStorage.getItem("hour08"));
-  $("#hour09.description").val(localStorage.getItem("hour09"));
-  $("#hour10.description").val(localStorage.getItem("hour10"));
-  $("#hour11.description").val(localStorage.getItem("hour11"));
-  $("#hour12.description").val(localStorage.getItem("hour12"));
-  $("#hour13.description").val(localStorage.getItem("hour13"));
-  $("#hour14.description").val(localStorage.getItem("hour14"));
-  $("#hour15.description").val(localStorage.getItem("hour15"));
-  $("#hour16.description").val(localStorage.getItem("hour16"));
-  $("#hour17.description").val(localStorage.getItem("hour17"));
-  $("#hour18.description").val(localStorage.getItem("hour18"));
-  $("#hour19.description").val(localStorage.getItem("hour19"));
-  $("#hour20.description").val(localStorage.getItem("hour20"));
-  $("#hour21.description").val(localStorage.getItem("hour21"));
-  $("#hour22.description").val(localStorage.getItem("hour22"));
-  $("#hour23.description").val(localStorage.getItem("hour23"));
+  renderDream ();
 
-
-timeTracker();
-
-})
+});
