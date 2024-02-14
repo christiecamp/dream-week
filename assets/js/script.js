@@ -49,6 +49,6 @@ $(document).ready(function () {
       var blockTime = $(this).attr("id");
       $(this).children(".description").val(localStorage.getItem(blockTime));
     });
-  }
+  };
 
   renderDream ();
